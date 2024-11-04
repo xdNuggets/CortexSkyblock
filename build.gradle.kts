@@ -25,7 +25,7 @@ dependencies {
 tasks {
     shadowJar {
         relocate("com.github.stefvanschie.inventoryframework", "dev.cortex.IF")
-        relocate("dev.jorel.commandapi", "dev.cortex.commandapi")
+        relocate("dev.jorel.commandapi", "dev.cortex.commands")
     }
 
     build {
