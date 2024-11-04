@@ -1,4 +1,4 @@
-package dev.cortex.cortexSkyblock;
+package dev.cortex.skyblock;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

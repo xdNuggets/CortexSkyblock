@@ -1,4 +1,4 @@
-package dev.cortex.cortexSkyblock.model.item;
+package dev.cortex.skyblock.model.item;
 
 public class Item {
 }

@@ -1,2 +1,10 @@
-package dev.cortex.skyblock.model.player;public class GamePlayer {
+package dev.cortex.skyblock.model.player;
+
+public class GamePlayer {
+
+    public GamePlayer() {
+
+    }
+
+
 }

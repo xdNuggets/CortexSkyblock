@@ -1,2 +1,4 @@
-package dev.cortex.skyblock.manager;public class PlayerManager {
+package dev.cortex.skyblock.manager;
+
+public class PlayerManager {
 }
