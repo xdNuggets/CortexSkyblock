@@ -14,12 +14,18 @@ java {
 
 repositories {
     mavenCentral()
+
+    maven("https://repo.infernalsuite.com/repository/maven-snapshots/")
 }
 
 dependencies {
     paperweight.paperDevBundle("1.21.3-R0.1-SNAPSHOT")
     implementation("com.github.stefvanschie.inventoryframework:IF:0.10.17")
     implementation("dev.jorel:commandapi-bukkit-shade:9.6.0")
+    implementation("com.infernalsuite.aswm:loaders:3.0.0-SNAPSHOT")
+    compileOnly("com.infernalsuite.aswm:api:3.0.0-SNAPSHOT")
+
+
 }
 
 tasks {
