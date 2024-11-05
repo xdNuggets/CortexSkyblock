@@ -3,10 +3,12 @@ package dev.cortex.skyblock;
 import com.infernalsuite.aswm.api.AdvancedSlimePaperAPI;
 import com.infernalsuite.aswm.api.loaders.SlimeLoader;
 import com.infernalsuite.aswm.loaders.file.FileLoader;
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
+@Getter
 public final class CortexSkyblock extends JavaPlugin {
 
     private SlimeLoader islandLoader;
@@ -14,8 +16,8 @@ public final class CortexSkyblock extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        islandLoader = new FileLoader(new File("player_islands"));
-        asp = AdvancedSlimePaperAPI.instance();
+        this.islandLoader = new FileLoader(new File("player_islands"));
+        this.asp = AdvancedSlimePaperAPI.instance();
     }
 
     @Override
@@ -23,16 +25,8 @@ public final class CortexSkyblock extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public SlimeLoader getIslandLoader() {
-        return islandLoader;
-    }
-
     public static CortexSkyblock getInstance() {
         return CortexSkyblock.getPlugin(CortexSkyblock.class);
-    }
-
-    public AdvancedSlimePaperAPI getSlimeAPI() {
-        return asp;
     }
 
 }

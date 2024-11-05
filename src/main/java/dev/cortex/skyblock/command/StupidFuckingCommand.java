@@ -10,7 +10,7 @@ public class StupidFuckingCommand implements BasicCommand {
 
     @Override
     public void execute(CommandSourceStack commandSourceStack, String[] strings) {
-        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getSlimeAPI();
+        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getAsp();
         api.createEmptyWorld("island", false, new SlimePropertyMap(), CortexSkyblock.getInstance().getIslandLoader());
 
     }

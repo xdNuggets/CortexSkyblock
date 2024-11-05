@@ -17,7 +17,7 @@ public class ImportIslandCommand implements BasicCommand {
 
     @Override
     public void execute(CommandSourceStack commandSourceStack, String[] strings) {
-        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getSlimeAPI();
+        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getAsp();
         SlimeWorld world;
 
         try {

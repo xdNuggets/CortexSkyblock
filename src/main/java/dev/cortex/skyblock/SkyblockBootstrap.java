@@ -9,7 +9,7 @@ import io.papermc.paper.plugin.bootstrap.PluginBootstrap;
 import io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 
-public class SkyblockBootstrap implements PluginBootstrap {
+public final class SkyblockBootstrap implements PluginBootstrap {
 
     @Override
     public void bootstrap(BootstrapContext context) {
