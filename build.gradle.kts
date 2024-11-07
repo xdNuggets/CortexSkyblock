@@ -16,6 +16,8 @@ repositories {
     mavenCentral()
 
     maven("https://repo.infernalsuite.com/repository/maven-snapshots/")
+    maven("https://repo.rapture.pw/repository/maven-releases/")
+
 }
 
 dependencies {
@@ -39,7 +41,7 @@ tasks {
     }
 
     build {
-        dependsOn(reobfJar)
+        // dependsOn(reobfJar)
     }
 
     compileJava {
