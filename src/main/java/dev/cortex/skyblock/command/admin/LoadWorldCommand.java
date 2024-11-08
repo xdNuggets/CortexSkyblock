@@ -8,22 +8,20 @@ import dev.jorel.commandapi.arguments.StringArgument;
 import dev.jorel.commandapi.executors.CommandArguments;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class LoadWorldCommand {
-
-    public void registerCommand() {
+    public LoadWorldCommand() {
         new CommandAPICommand("loadworld")
                 .withArguments(new StringArgument("world"))
-                .executesPlayer(this::execute)
+                .executesPlayer(this::onLoadWorld)
                 .register();
     }
 
-    void execute(CommandSender sender, CommandArguments args) {
-        Player player = (Player) sender;
-        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getAsp();
+    void onLoadWorld(@NotNull Player player, @NotNull CommandArguments args) {
+        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getAsp();
         try {
-
-            SlimeWorld world = api.readWorld(CortexSkyblock.getInstance().getIslandLoader(), args.getRaw(0), false, null);
+            SlimeWorld world = api.readWorld(CortexSkyblock.instance.getIslandLoader(), args.getRaw(0), false, null);
             api.loadWorld(world, true);
             player.sendMessage("World loaded!");
         } catch (Exception e) {

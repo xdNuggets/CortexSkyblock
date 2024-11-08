@@ -19,34 +19,34 @@ import java.io.File;
 
 @Getter
 public final class CortexSkyblock extends JavaPlugin {
-
+    public static CortexSkyblock instance;
     private SlimeLoader islandLoader;
     private AdvancedSlimePaperAPI asp;
 
     @Override
+    public void onLoad() {
+        instance = this;
+    }
+
+    @Override
+    @SuppressWarnings("UnstableApiUsage")
     public void onEnable() {
         this.islandLoader = new FileLoader(new File("player_islands"));
         this.asp = AdvancedSlimePaperAPI.instance();
 
-        @NotNull LifecycleEventManager<Plugin> manager = this.getLifecycleManager();
+        LifecycleEventManager<@NotNull Plugin> manager = this.getLifecycleManager();
         manager.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
             final Commands commands = event.registrar();
             commands.register("worldtp", new TpWorldCommand());
             commands.register("save", new SaveWorldCommand());
         });
 
-        new CreateIslandCommand().registerCommand();
-        new LoadWorldCommand().registerCommand();
-
+        new CreateIslandCommand();
+        new LoadWorldCommand();
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
     }
-
-    public static CortexSkyblock getInstance() {
-        return CortexSkyblock.getPlugin(CortexSkyblock.class);
-    }
-
 }

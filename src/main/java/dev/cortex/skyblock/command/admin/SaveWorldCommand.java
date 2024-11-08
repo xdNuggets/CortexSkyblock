@@ -8,7 +8,7 @@ import io.papermc.paper.command.brigadier.CommandSourceStack;
 public class SaveWorldCommand implements BasicCommand {
     @Override
     public void execute(CommandSourceStack commandSourceStack, String[] args) {
-        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getAsp();
+        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getAsp();
         try {
             api.saveWorld(api.getLoadedWorld(args[0]));
             commandSourceStack.getSender().sendMessage("World saved!");
