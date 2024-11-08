@@ -16,14 +16,21 @@ repositories {
     mavenCentral()
 
     maven("https://repo.infernalsuite.com/repository/maven-snapshots/")
+    maven("https://repo.rapture.pw/repository/maven-releases/")
+
 }
 
 dependencies {
     paperweight.paperDevBundle("1.21.3-R0.1-SNAPSHOT")
     implementation("com.github.stefvanschie.inventoryframework:IF:0.10.17")
     implementation("dev.jorel:commandapi-bukkit-shade:9.6.0")
+    implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
+
     implementation("com.infernalsuite.aswm:loaders:3.0.0-SNAPSHOT")
     compileOnly("com.infernalsuite.aswm:api:3.0.0-SNAPSHOT")
+
+    compileOnly("org.projectlombok:lombok:1.18.34")
+    annotationProcessor("org.projectlombok:lombok:1.18.34")
 
 
 }
@@ -32,10 +39,11 @@ tasks {
     shadowJar {
         relocate("com.github.stefvanschie.inventoryframework", "dev.cortex.IF")
         relocate("dev.jorel.commandapi", "dev.cortex.commands")
+        relocate("com.jeff_media.morepersistentdatatypes", "dev.cortex.morepersistentdatatypes")
     }
 
     build {
-        dependsOn(reobfJar)
+        // dependsOn(reobfJar)
     }
 
     compileJava {
