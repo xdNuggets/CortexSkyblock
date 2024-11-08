@@ -20,7 +20,7 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) throws IOException {
-        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getAsp();
+        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getAsp();
         SlimeWorld world = api.getLoadedWorld("island_" + event.getPlayer().getUniqueId());
         api.saveWorld(world);
         Bukkit.unloadWorld("island_" + event.getPlayer().getUniqueId(), false);

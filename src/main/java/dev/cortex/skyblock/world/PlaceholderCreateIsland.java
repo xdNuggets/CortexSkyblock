@@ -27,8 +27,8 @@ public class PlaceholderCreateIsland {
         properties.setValue(SlimeProperties.WORLD_TYPE, "DEFAULT");
         properties.setValue(SlimeProperties.DEFAULT_BIOME, "minecraft:plains");
 
-        AdvancedSlimePaperAPI api = CortexSkyblock.getInstance().getAsp();
-        SlimeLoader loader = CortexSkyblock.getInstance().getIslandLoader();
+        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getAsp();
+        SlimeLoader loader = CortexSkyblock.instance.getIslandLoader();
         try {
             SlimeWorld template = api.readWorld(loader, "player_island_template", true, properties);
             SlimeWorld playerIsland = template.clone("island_" + player.getUniqueId(), loader);
