@@ -6,7 +6,6 @@ import dev.cortex.skyblock.CortexSkyblock;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.StringArgument;
 import dev.jorel.commandapi.executors.CommandArguments;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,7 +18,7 @@ public class LoadWorldCommand {
     }
 
     void onLoadWorld(@NotNull Player player, @NotNull CommandArguments args) {
-        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getAsp();
+        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getApi();
         try {
             SlimeWorld world = api.readWorld(CortexSkyblock.instance.getIslandLoader(), args.getRaw(0), false, null);
             api.loadWorld(world, true);

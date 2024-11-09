@@ -2,18 +2,24 @@ package dev.cortex.skyblock.command.admin;
 
 import com.infernalsuite.aswm.api.AdvancedSlimePaperAPI;
 import dev.cortex.skyblock.CortexSkyblock;
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
+import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.StringArgument;
 
-public class SaveWorldCommand implements BasicCommand {
-    @Override
-    public void execute(CommandSourceStack commandSourceStack, String[] args) {
-        AdvancedSlimePaperAPI api = CortexSkyblock.instance.getAsp();
-        try {
-            api.saveWorld(api.getLoadedWorld(args[0]));
-            commandSourceStack.getSender().sendMessage("World saved!");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+public class SaveWorldCommand {
+
+    public SaveWorldCommand() {
+        new CommandAPICommand("save")
+                .withArguments(
+                        new StringArgument("worldname")
+                ).executesPlayer((player, args) -> {
+                    String worldName = (String) args.get("worldname");
+                    AdvancedSlimePaperAPI api = CortexSkyblock.instance.getApi();
+                    try {
+                        api.saveWorld(api.getLoadedWorld(args.get("worldname").toString()));
+                        player.sendMessage("World saved!");
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
     }
 }
